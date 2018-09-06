@@ -1,11 +1,14 @@
 import React from 'react';
+import {reduxForm, Field} from 'redux-form';
 
-export default function Form(props) {
+export function Form(props) {
+  // <Field name="name" id="name" type="text" component="input" />
   return(
     <form>
       <div>
         <label for="trackingNumber">Tracking number</label>
-        <input name="trackingNumber" id="trackingNumber"></input>
+        <Field name="trackingNumber" id="trackingNumber" component="input" />
+        {/* <input name="trackingNumber" id="trackingNumber"></input> */}
       </div>
       <div>
         <label for="issue">What is your issue?</label>
@@ -27,3 +30,7 @@ export default function Form(props) {
     </form>
   )
 }
+
+export default reduxForm({
+  form: 'form'
+})(Form);
